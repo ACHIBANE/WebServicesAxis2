@@ -1,22 +1,24 @@
 package wmd.ws;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import wmd.ws.entities.User;
 
-public class AuthService {
+public class AuthService implements Serializable{
 	
-static{
-		
-	HashMap<String, String> hmap = new HashMap<String,String>();
-	hmap.put("wmd1", "azerty1");
-	hmap.put("wmd2", "azerty2");
-	hmap.put("wmd3", "azerty3");
-	
-}
-	public User CheckUser (String login,String pswd){
-		
-		
+	static HashMap<String, User> hmap;
+	static{
+		hmap = new HashMap<String,User>();
+		hmap.put( "user1",new User("achiban","azerty123"));
+		hmap.put("user2",new User("bouchra","azerty"));
+		hmap.put("user3",new User("anonyme","aqw123"));
+	}
+	public static User CheckUser (String login,String pswd){
+		User user=new User(login, pswd);
+		if(hmap.containsValue(user)){
+			return user;
+		}
 		return null;
 	}	
 	
