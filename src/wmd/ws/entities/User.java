@@ -1,16 +1,18 @@
 package wmd.ws.entities;
 
-public class User {
-	
-	Long userID;
-	String login;
-	String pswd;
-	
-	
-	public User(String login, String pswd) {
-		
-		this.login = login;
-		this.pswd = pswd;
+import java.io.Serializable;
+import java.util.concurrent.atomic.AtomicLong;
+
+public class User implements Serializable{
+
+	private static final AtomicLong count=new AtomicLong(0);
+	private String login;
+	private Long id;
+	private String password;
+	public User(String login, String password){
+		id=count.incrementAndGet();
+		this.login=login;
+		this.password=password;
 	}
 	public String getLogin() {
 		return login;
@@ -18,13 +20,17 @@ public class User {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public String getPswd() {
-		return pswd;
+	public Long getId() {
+		return id;
 	}
-	public void setPswd(String pswd) {
-		this.pswd = pswd;
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
-	
-
 }
