@@ -1,3 +1,7 @@
+*.class
+
+#env settings
+
 .settings
 .classpath
 .project
