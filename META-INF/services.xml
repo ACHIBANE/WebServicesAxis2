@@ -1,7 +1,8 @@
 <service>
 	<description>Service Description</description>
 	<parameter name="ServiceClass">wmd.ws.AuthService</parameter>
-	<operation name="CheckUser">
+	<!-- <operation name="CheckUser"> -->
+	<operation name="Hello">
 		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
 	</operation>
 </service>
